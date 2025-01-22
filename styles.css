@@ -1,0 +1,125 @@
+
+body {
+    background-color: #f0f4f8;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar {
+    background-color: #343a40;
+  }
+  .navbar-brand {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
+  }
+ 
+  .header-bg {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    animation: gradientShift 5s ease infinite;
+  }
+  
+  .header-text {
+    font-size: 4rem;
+    font-weight: bold;
+    animation: zoomIn 1s ease-in-out;
+  }
+  
+  @keyframes gradientShift {
+    0% { background: linear-gradient(to right, #1e3c72, #2a5298); }
+    50% { background: linear-gradient(to right, #2a5298, #1e3c72); }
+    100% { background: linear-gradient(to right, #1e3c72, #2a5298); }
+  }
+  
+  @keyframes zoomIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  header .btn {
+    border-radius: 30px;
+    background-color: #ffffff;
+    color: #2a5298;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  header .btn:hover {
+    background-color: #2a5298;
+    color: white;
+    transform: scale(1.05);
+  }
+ 
+  form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+
+  #reservationStatus {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  #reservationStatus.green {
+    color: #28a745;
+  }
+  
+  #reservationStatus.red {
+    color: #dc3545;
+  }
+  
+  .footer-bg {
+    background: linear-gradient(to right, #343a40, #2a5298);
+    padding: 30px 0;
+    animation: footerMove 3s ease-in-out infinite;
+  }
+  
+  .footer-bg p {
+    font-size: 1rem;
+  }
+  
+  @keyframes footerMove {
+    0% { background: linear-gradient(to right, #343a40, #2a5298); }
+    50% { background: linear-gradient(to right, #2a5298, #343a40); }
+    100% { background: linear-gradient(to right, #343a40, #2a5298); }
+  }
+  
+  .footer-bg p {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .header-text {
+      font-size: 3rem;
+    }
+    .footer-bg p {
+      font-size: 1rem;
+    }
+  }
+  

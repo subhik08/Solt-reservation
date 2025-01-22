@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Spot Finder</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>   
+    body {
+      background-color: #f1f1f1;
+      font-family: Arial, sans-serif;
+    }   
+    .header-bg {
+      background-color: #007bff;
+      color: white;
+      padding: 80px 0;
+      text-align: center;
+    }
+    .header-text {
+      font-size: 3rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    #map {
+      width: 100%;
+      height: 450px;
+      margin-top: 20px;
+    }    
+    .reservation-form-card {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+    }
+    .form-label {
+      font-weight: bold;
+    }
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    }
+    .reservation-form-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    .reservation-form-button:hover {
+      background-color: #0056b3;
+    }
+    .hover-marker {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .hover-marker:hover {
+      transform: scale(1.2);
+    }
+    .info-window-content img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    #congratsScreen {
+      display: none;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-bg">
+    <h1 class="header-text">Find Your Parking Spot</h1>
+    <p class="lead">Find a spot, reserve it, and go!</p>
+  </header>
+  <div id="map"></div>
+  <div class="container reservation-container">
+    <center>
+      <h2 class="text-center mb-4">Parking Spot Reserved</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="reservation-form-card">
+            <form id="reservationForm">
+              <div class="mb-3">
+                <label for="userName" class="form-label">Full Name</label>
+                <input type="text" class="form-control input-field" id="userName" placeholder="Enter your full name" required>
+              </div>
+              <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="text" class="form-control input-field" id="phoneNumber" placeholder="Enter your phone number" required>
+              </div>
+           
+              <div class="mb-3">
+                <label for="userEmail" class="form-label">Email Address</label>
+                <input type="email" class="form-control input-field" id="userEmail" placeholder="Enter your email address" required>
+              </div>
+              <div class="mb-3">
+                <label for="vehicleDetails" class="form-label">Vehicle Details</label>
+                <input type="text" class="form-control input-field" id="vehicleDetails" placeholder="Enter your vehicle model" required>
+              </div>
+              <div class="mb-3">
+                <label for="spotSelect" class="form-label">Choose Spot</label>
+                <select class="form-select input-field" id="spotSelect" required>
+                  <option value="" disabled selected>Select a Spot</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="reservationDate" class="form-label">Reservation Date</label>
+                <input type="date" class="form-control input-field" id="reservationDate" required>
+              </div>
+              <div class="mb-3">
+                <label for="reservationTime" class="form-label">Reservation Time</label>
+                <input type="time" class="form-control input-field" id="reservationTime" required>
+              </div>
+            
+              <div class="mb-3">
+                <label for="duration" class="form-label">Reservation Duration</label>
+                <div class="input-group">
+                  <input type="number" class="form-control" id="durationHours" placeholder="Hours" min="1" required>
+                  <input type="number" class="form-control" id="durationMinutes" placeholder="Minutes" min="0" max="59" required>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Reserve Spot</button>
+            </form>
+            <div class="confirmation-message" id="reservationStatus"></div>
+            <div class="error-message" id="errorStatus"></div>
+          </div>
+        </div>
+      </div>
+    </center>
+  </div>
+  <div id="congratsScreen" style="display: none;">
+    <h1>🎉 Congratulations! 🎉</h1>
+    <p>Thanks for choosing us! Your reservation is confirmed.</p>
+    <p>We’ve sent a confirmation email to the provided address.</p>
+  </div>
+  <footer>
+    <center>Thanks for Choosing Us!<br> All rights Reserved.<br>@2025</center>
+  </footer>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCew1NYEmkr6B9mUZS9MCRNpGvgT9TgBY4&callback=initMap" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
